@@ -1,6 +1,8 @@
 Pipenv: Python Development Workflow for Humans
 ==============================================
 
+**This is Thoth's fork of Pipenv, use on your own risk. See [this issue](https://github.com/pypa/pipenv/issues/4058) for more info why this fork was created.**
+
 [![image](https://img.shields.io/pypi/v/pipenv.svg)](https://python.org/pypi/pipenv)
 [![image](https://img.shields.io/pypi/l/pipenv.svg)](https://python.org/pypi/pipenv)
 [![Azure Pipelines Build Status](https://dev.azure.com/pypa/pipenv/_apis/build/status/Pipenv%20CI?branchName=master)](https://dev.azure.com/pypa/pipenv/_build/latest?definitionId=16&branchName=master)
