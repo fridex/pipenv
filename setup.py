@@ -113,7 +113,7 @@ class UploadCommand(Command):
 
 
 setup(
-    name="pipenv",
+    name="thoth-pipenv",
     version=about["__version__"],
     description="Python Development Workflow for Humans.",
     long_description=long_description,
