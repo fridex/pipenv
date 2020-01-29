@@ -994,6 +994,7 @@ class Project(object):
             self.write_toml(self.parsed_pipfile)
 
     def load_lockfile(self, expand_env_vars=True):
+        print(self.lockfile_location)
         with io.open(self.lockfile_location, encoding="utf-8") as lock:
             j = json.load(lock)
             self._lockfile_newlines = preferred_newlines(lock)
@@ -1012,16 +1013,19 @@ class Project(object):
 
     def get_lockfile_hash(self):
         if not os.path.exists(self.lockfile_location):
+            print("Lockfile does not exist")
             return
 
         try:
             lockfile = self.load_lockfile(expand_env_vars=False)
         except ValueError:
             # Lockfile corrupted
+            print("Lockfile corrupted")
             return ""
         if "_meta" in lockfile and hasattr(lockfile, "keys"):
             return lockfile["_meta"].get("hash", {}).get("sha256")
         # Lockfile exists but has no hash at all
+        print("Lockfile exists but has no hash at all")
         return ""
 
     def calculate_pipfile_hash(self):

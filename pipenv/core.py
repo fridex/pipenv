@@ -969,7 +969,7 @@ def do_create_virtualenv(python=None, site_packages=None, pypi_mirror=None):
         pipfile=project.parsed_pipfile,
         project=project
     )
-    project._environment.add_dist("pipenv")
+    # project._environment.add_dist("pipenv")
     # Say where the virtualenv is.
     do_where(virtualenv=True, bare=False)
 
@@ -1210,7 +1210,11 @@ def do_init(
     # Write out the lockfile if it doesn't exist, but not if the Pipfile is being ignored
     if (project.lockfile_exists and not ignore_pipfile) and not skip_lock:
         old_hash = project.get_lockfile_hash()
+        print("Old hash:")
+        print(old_hash)
         new_hash = project.calculate_pipfile_hash()
+        print("New hash")
+        print(new_hash)
         if new_hash != old_hash:
             if deploy:
                 click.echo(
